@@ -1,9 +1,9 @@
 FROM debian:bullseye as downloader
 
-RUN apt-get update && apt-get install -y wget
+RUN apt-get update && apt-get install -y curl
 
-# 東京都PBFデータ取得
-RUN wget https://download.geofabrik.de/asia/japan/kanto/tokyo-latest.osm.pbf -O /tokyo.osm.pbf
+# curlで東京都PBFをダウンロード
+RUN curl -o /tokyo.osm.pbf https://download.geofabrik.de/asia/japan/kanto/tokyo-latest.osm.pbf
 
 FROM osrm/osrm-backend
 
