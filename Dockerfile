@@ -2,7 +2,7 @@
 FROM debian:bullseye as downloader
 
 RUN apt-get update && apt-get install -y wget
-RUN wget https://download.geofabrik.de/asia/japan/kanto-latest.osm.pbf -O /map.osm.pbf
+RUN wget https://download.geofabrik.de/asia/japan/tokyo-latest.osm.pbf -O /map.osm.pbf
 
 # ステージ2: OSRMビルド
 FROM osrm/osrm-backend
