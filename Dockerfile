@@ -1,6 +1,9 @@
 FROM osrm/osrm-backend
 
-# 必要なデータをダウンロード（ここでwget）
+# wgetをインストール
+RUN apt-get update && apt-get install -y wget
+
+# PBFデータをダウンロード
 RUN wget https://download.geofabrik.de/asia/japan/kanto-latest.osm.pbf -O /data/map.osm.pbf
 
 # OSRMデータ作成
